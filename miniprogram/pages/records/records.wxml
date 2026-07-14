@@ -1,0 +1,22 @@
+<view class="page visit-list-page">
+  <view class="brand-row">
+    <view class="brand-dots"><text></text><text></text><text></text><text></text><text></text></view>
+    <view>{{t.factory}}</view>
+  </view>
+  <view class="page-title">{{t.recordsTitle}}</view>
+  <view class="list-panel">
+    <view class="count-pill">{{t.recordsCountPrefix}} {{items.length}} {{t.recordsCountSuffix}}</view>
+    <view wx:for="{{items}}" wx:key="applicationNo" class="visit-card" bindtap="goDetail" data-no="{{item.applicationNo}}">
+      <view class="visit-main">
+        <view class="visit-line">
+          <text class="small-icon">人</text>
+          <text>{{t.contactName}}：{{item.contactName}}</text>
+          <text class="status-inline">{{t.status}}:{{item.status}}</text>
+        </view>
+        <view class="visit-time">{{t.time}}:{{item.visitStartDate}} 00:00:00~{{item.visitEndDate}} 23:59:59</view>
+      </view>
+      <view class="visit-arrow">›</view>
+    </view>
+    <view wx:if="{{!items.length}}" class="empty-text">{{t.emptyRecords}}</view>
+  </view>
+</view>

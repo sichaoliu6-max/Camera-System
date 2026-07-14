@@ -1,0 +1,109 @@
+.detail-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #69757f;
+}
+
+.section-title {
+  padding: 28rpx 20rpx;
+  color: #6d7880;
+  font-size: 28rpx;
+}
+
+.info-block {
+  background: #fff;
+}
+
+.visitor-card + .visitor-card {
+  border-top: 20rpx solid #f4f5f6;
+}
+
+.visitor-role {
+  margin: 0 24rpx;
+  padding: 20rpx 0 10rpx;
+  color: #a07c4f;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.info-row {
+  display: flex;
+  min-height: 92rpx;
+  align-items: center;
+  margin: 0 24rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  font-size: 28rpx;
+}
+
+.info-row.tall {
+  min-height: 138rpx;
+}
+
+.info-icon {
+  display: none;
+  width: 40rpx;
+  color: #737b82;
+  font-size: 24rpx;
+}
+
+.info-label {
+  width: 250rpx;
+  color: #74808a;
+}
+
+.info-value {
+  flex: 1;
+  color: #59626a;
+  text-align: right;
+}
+
+.status-chip {
+  display: inline-flex;
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: #eef3f6;
+  color: #7a8790;
+  font-size: 24rpx;
+}
+
+.split-line {
+  height: 24rpx;
+  background: #1c1c1c;
+}
+
+.qr-panel {
+  padding: 26rpx;
+}
+
+.qr-title {
+  margin-bottom: 12rpx;
+  color: #59626a;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.qr-canvas {
+  width: 280rpx;
+  height: 280rpx;
+  margin: 20rpx 0;
+  border: 1rpx solid #dce3eb;
+  background: #fff;
+}
+
+.qr-token {
+  color: #8b8b8b;
+  font-size: 22rpx;
+  word-break: break-all;
+}
+
+.approval-row {
+  padding: 20rpx 24rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  color: #59626a;
+}
+
+.approval-time {
+  margin-top: 8rpx;
+  color: #9aa3aa;
+  font-size: 24rpx;
+}

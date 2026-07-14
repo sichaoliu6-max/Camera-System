@@ -1,0 +1,28 @@
+<view class="page profile-page">
+  <view class="brand-row center">
+    <view class="brand-dots"><text></text><text></text><text></text><text></text><text></text></view>
+    <view>{{t.factory}}</view>
+  </view>
+  <view class="profile-head">
+    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image wx:if="{{userProfile.avatarUrl}}" class="avatar-img" src="{{userProfile.avatarUrl}}" mode="aspectFill"></image>
+      <view wx:else class="avatar">人</view>
+    </button>
+    <view class="profile-company">{{t.groupName}}</view>
+    <view class="profile-name">{{t.welcomeUser}} {{userProfile.nickName || t.visitorUser}}</view>
+    <view class="profile-phone">{{userProfile.phoneNumber || t.phoneNotAuthorized}}</view>
+    <view class="auth-actions">
+      <button class="auth-btn" bindtap="authorizeProfile">{{t.authorizeProfile}}</button>
+      <button class="auth-btn" open-type="getPhoneNumber" bindgetphonenumber="onPhoneNumber">{{t.authorizePhone}}</button>
+    </view>
+  </view>
+
+  <view class="language-panel">
+    <view class="profile-row">
+      <text>{{t.language}}</text>
+      <picker class="language-picker" range="{{languageOptions}}" range-key="label" value="{{languageIndex}}" bindchange="onLanguageChange">
+        <text class="language-value">{{currentLanguageLabel}} <text class="row-arrow">›</text></text>
+      </picker>
+    </view>
+  </view>
+</view>

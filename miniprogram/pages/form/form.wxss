@@ -1,0 +1,232 @@
+.form-page {
+  min-height: 100vh;
+  padding-bottom: 150rpx;
+  background: #fff;
+}
+
+.form-list {
+  padding: 0 28rpx;
+  background: #fff;
+}
+
+.form-page .field {
+  min-height: 96rpx;
+  align-items: center;
+}
+
+.form-page .field-control,
+.form-page input,
+.form-page textarea,
+.form-page picker {
+  text-align: left;
+}
+
+.form-page .field-control {
+  min-height: 96rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+}
+
+.form-page input.field-control {
+  line-height: normal;
+}
+
+.form-page picker.field-control,
+.picker-value view {
+  display: flex;
+  align-items: center;
+}
+
+.picker-value view {
+  min-height: 96rpx;
+  line-height: 1.2;
+}
+
+.field-icon {
+  display: none;
+  flex: 0 0 38rpx;
+  width: 38rpx;
+  height: 38rpx;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12rpx;
+  border-radius: 50%;
+  color: #111;
+  font-size: 22rpx;
+}
+
+.muted-value {
+  color: #b7b7c2;
+}
+
+.mini-add {
+  display: inline-flex;
+  flex: 0 0 136rpx;
+  box-sizing: border-box;
+  width: 136rpx;
+  min-width: 136rpx;
+  height: 58rpx;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12rpx;
+  padding: 0;
+  border-radius: 28rpx;
+  background: #a07c4f;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 58rpx;
+  white-space: nowrap;
+}
+
+.mini-add::after {
+  border: 0;
+}
+
+.picker-value {
+  color: #242424;
+}
+
+.picker-arrow {
+  color: #b8b8bd;
+  font-size: 36rpx;
+}
+
+.companion-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  line-height: 1;
+}
+
+.companion-summary {
+  padding: 12rpx 0 16rpx 70rpx;
+}
+
+.companion-chip {
+  display: inline-flex;
+  margin: 8rpx 10rpx 0 0;
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #f3ede4;
+  color: #6d4d28;
+  font-size: 22rpx;
+}
+
+.hint {
+  padding: 14rpx 32rpx 18rpx 70rpx;
+  color: #9a9a9a;
+  font-size: 22rpx;
+  line-height: 1.4;
+}
+
+.hint.right {
+  padding-right: 32rpx;
+  text-align: right;
+}
+
+.submit-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx 24rpx 34rpx;
+  background: #fff;
+}
+
+.submit-btn {
+  height: 76rpx;
+  border-radius: 10rpx;
+  background: #a07c4f;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.dialog-mask {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.companion-dialog {
+  box-sizing: border-box;
+  width: 88vw;
+  max-height: 78vh;
+  padding: 28rpx 28rpx 48rpx;
+  border-radius: 28rpx;
+  background: #fff;
+  color: #111;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.dialog-close {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 32rpx;
+  background: #f2f2f2;
+  color: #111;
+  font-size: 40rpx;
+  line-height: 64rpx;
+}
+
+.dialog-list {
+  margin: 18rpx 0;
+}
+
+.dialog-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64rpx;
+  color: #555;
+  font-size: 24rpx;
+}
+
+.dialog-row button {
+  width: 96rpx;
+  height: 48rpx;
+  margin: 0;
+  color: #a07c4f;
+  font-size: 22rpx;
+  line-height: 48rpx;
+}
+
+.dialog-form input,
+.dialog-picker {
+  display: block;
+  min-height: 82rpx;
+  margin-top: 14rpx;
+  padding: 0 20rpx;
+  border-radius: 12rpx;
+  background: #f7f7f7;
+  text-align: left;
+}
+
+.dialog-form {
+  max-height: 46vh;
+  overflow: auto;
+}
+
+.dialog-picker view {
+  line-height: 82rpx;
+}
+
+.dialog-submit {
+  margin-top: 24rpx;
+}

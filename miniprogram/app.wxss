@@ -1,0 +1,105 @@
+page {
+  background: #1c1c1c;
+  color: #f8f8f8;
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 28rpx 24rpx 48rpx;
+  background: #1c1c1c;
+}
+
+.card {
+  margin-bottom: 20rpx;
+  padding: 28rpx;
+  border-radius: 24rpx;
+  background: #fff;
+  color: #202020;
+}
+
+.dark-card {
+  background: #a07c4f;
+  color: #fff;
+  box-shadow: 0 20rpx 40rpx rgba(0, 0, 0, 0.22);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.subtle {
+  color: #9b9b9b;
+  font-size: 24rpx;
+}
+
+.btn {
+  margin-top: 18rpx;
+  border-radius: 10rpx;
+  background: #a07c4f;
+  color: #fff;
+}
+
+.btn.secondary {
+  background: #e8eef3;
+  color: #17202a;
+}
+
+.field {
+  display: flex;
+  min-height: 94rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.label {
+  display: flex;
+  width: 250rpx;
+  align-items: center;
+  margin-bottom: 0;
+  color: #111;
+  font-weight: 700;
+}
+
+.required {
+  color: #d9534f;
+}
+
+.field-control {
+  flex: 1;
+  color: #242424;
+  text-align: right;
+}
+
+input,
+textarea,
+picker {
+  min-height: 72rpx;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  color: #242424;
+  text-align: right;
+}
+
+textarea {
+  min-height: 140rpx;
+  padding-top: 16rpx;
+}
+
+.status {
+  display: inline-block;
+  padding: 4rpx 14rpx;
+  border-radius: 999rpx;
+  background: #f3ede4;
+  color: #a07c4f;
+  font-size: 24rpx;
+}
+
+.page-title {
+  margin: 36rpx 0 30rpx;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 800;
+}

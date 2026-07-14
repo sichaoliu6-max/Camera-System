@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/records/records",
+    "pages/profile/profile",
+    "pages/form/form",
+    "pages/success/success",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "访客预约",
+    "navigationBarBackgroundColor": "#2d2d2d",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1c1c1c"
+  },
+  "tabBar": {
+    "color": "#ffffff",
+    "selectedColor": "#a07c4f",
+    "backgroundColor": "#2d2d2d",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tab-home.png",
+        "selectedIconPath": "assets/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/records/records",
+        "text": "来访列表",
+        "iconPath": "assets/tab-list.png",
+        "selectedIconPath": "assets/tab-list-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "assets/tab-profile.png",
+        "selectedIconPath": "assets/tab-profile-active.png"
+      }
+    ]
+  }
+}

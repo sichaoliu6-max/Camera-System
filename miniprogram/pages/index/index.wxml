@@ -1,0 +1,16 @@
+  <view class="page home-page">
+    <view class="brand">EssilorLuxottica</view>
+  <view class="welcome">{{t.homeWelcome}}</view>
+
+  <view class="card dark-card apply-entry" bindtap="goForm">
+    <view>
+      <view class="entry-title">{{t.visitorApply}}</view>
+      <view class="entry-subtitle">{{t.startApply}}</view>
+    </view>
+    <view class="entry-arrow">›</view>
+  </view>
+
+  <view class="factory-card">
+    <image class="factory-image" mode="aspectFill" src="/assets/songjiang-factory.jpeg"></image>
+  </view>
+</view>

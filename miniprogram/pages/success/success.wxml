@@ -1,0 +1,8 @@
+<view class="page">
+  <view class="card">
+    <view class="title">{{t.successTitle}}</view>
+    <view>{{t.applicationNo}}：{{applicationNo}}</view>
+    <view class="subtle">{{t.successDesc}}</view>
+    <button class="btn" bindtap="goDetail">{{t.viewProgress}}</button>
+  </view>
+</view>

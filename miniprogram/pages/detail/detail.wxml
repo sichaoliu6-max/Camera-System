@@ -1,0 +1,48 @@
+<view class="detail-page" wx:if="{{item}}">
+  <view class="section-title">- {{t.contactInfo}}</view>
+  <view class="info-block">
+    <view class="info-row tall"><text class="info-icon">部</text><text class="info-label">{{t.department}}</text><text class="info-value">{{item.contactDepartment}}</text></view>
+    <view class="info-row"><text class="info-icon">人</text><text class="info-label">{{t.name}}</text><text class="info-value">{{item.contactName}}</text></view>
+    <view class="info-row"><text class="info-icon">区</text><text class="info-label">{{t.visitArea}}</text><text class="info-value">{{item.visitAreasText}}</text></view>
+    <view class="info-row"><text class="info-icon">态</text><text class="info-label">{{t.status}}</text><text class="info-value"><text class="status-chip">{{t.status}}:{{item.status}}</text></text></view>
+  </view>
+
+  <view class="split-line"></view>
+
+  <view class="section-title">- {{t.visitorInfo}}</view>
+  <view class="info-block">
+    <view wx:for="{{item.visitors}}" wx:key="id" class="visitor-card">
+      <view class="visitor-role">{{item.visitorRole}}</view>
+      <view class="info-row"><text class="info-icon">人</text><text class="info-label">{{t.name}}</text><text class="info-value">{{item.name}}</text></view>
+      <view class="info-row"><text class="info-icon">机</text><text class="info-label">{{t.phone}}</text><text class="info-value">{{item.phone}}</text></view>
+      <view class="info-row"><text class="info-icon">始</text><text class="info-label">{{t.visitStartTime}}</text><text class="info-value">{{item.visitStartDateTime}}</text></view>
+      <view class="info-row"><text class="info-icon">终</text><text class="info-label">{{t.visitEndTime}}</text><text class="info-value">{{item.visitEndDateTime}}</text></view>
+      <view class="info-row"><text class="info-icon">由</text><text class="info-label">{{t.visitReason}}</text><text class="info-value">{{item.visitPurpose}}</text></view>
+      <view class="info-row"><text class="info-icon">司</text><text class="info-label">{{t.companyFullName}}</text><text class="info-value">{{item.company}}</text></view>
+      <view class="info-row"><text class="info-icon">证</text><text class="info-label">{{t.idNumber}}</text><text class="info-value">{{item.idNumberMasked}}</text></view>
+      <view class="info-row"><text class="info-icon">物</text><text class="info-label">{{t.goods}}</text><text class="info-value">{{item.specialRequest}}</text></view>
+      <view class="info-row"><text class="info-icon">同</text><text class="info-label">{{t.companions}}</text><text class="info-value">{{item.companionText}}</text></view>
+      <view class="info-row"><text class="info-icon">邮</text><text class="info-label">{{t.email}}</text><text class="info-value">{{item.applicantEmail}}</text></view>
+      <view class="info-row"><text class="info-icon">车</text><text class="info-label">{{t.carPlate}}</text><text class="info-value">{{item.carPlate}}</text></view>
+      <view class="info-row"><text class="info-icon">交</text><text class="info-label">{{t.submittedAt}}</text><text class="info-value">{{item.createdAt}}</text></view>
+      <view class="qr-panel">
+        <view class="qr-title">{{t.qrCode}}</view>
+        <view wx:if="{{item.qrPayload}}">
+          <canvas canvas-id="{{item.qrCanvasId}}" class="qr-canvas"></canvas>
+          <view class="qr-token">{{item.qrPayload}}</view>
+        </view>
+        <button wx:else class="btn secondary" data-visitor-id="{{item.id}}" bindtap="getQr">{{t.getQrCode}}</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="split-line"></view>
+  <view class="section-title">- {{t.approvalRecords}}</view>
+  <view class="info-block">
+    <view class="approval-row" wx:for="{{item.approvalRecords}}" wx:key="actionTime">
+      <view>{{item.nodeName}}｜{{item.approverName}}｜{{item.action}}</view>
+      <view class="approval-time">{{item.opinion}} {{item.actionTimeText}}</view>
+    </view>
+    <view wx:if="{{!item.approvalRecords.length}}" class="approval-time">{{t.noApprovalRecords}}</view>
+  </view>
+</view>

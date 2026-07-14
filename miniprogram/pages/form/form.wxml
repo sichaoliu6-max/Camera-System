@@ -1,0 +1,54 @@
+<view class="form-page">
+  <view class="form-list">
+    <view class="field"><text class="field-icon">人</text><text class="label">{{t.visitorName}}<text class="required">*</text></text><input class="field-control" adjust-position="{{true}}" cursor-spacing="120" value="{{visitor.name}}" data-key="name" bindinput="onVisitorInput" placeholder="{{p.visitorName}}" /></view>
+    <view class="field"><text class="field-icon">电</text><text class="label">{{t.visitorPhone}}<text class="required">*</text></text><input class="field-control" adjust-position="{{true}}" cursor-spacing="120" value="{{visitor.phone}}" data-key="phone" bindinput="onVisitorInput" placeholder="{{p.visitorPhone}}" /></view>
+    <view class="field"><text class="field-icon">司</text><text class="label">{{t.companyType}}<text class="required">*</text></text><picker class="field-control picker-value" range="{{visitorTypes}}" value="{{visitorTypeIndex}}" bindchange="onVisitorType"><view>{{visitorTypes[visitorTypeIndex]}} <text class="picker-arrow">›</text></view></picker></view>
+    <view class="field"><text class="field-icon">名</text><text class="label">{{t.companyName}}<text class="required">*</text></text><input class="field-control" adjust-position="{{true}}" cursor-spacing="120" value="{{visitor.company}}" data-key="company" bindinput="onVisitorInput" placeholder="{{p.companyName}}" /></view>
+    <view class="field"><text class="field-icon">证</text><text class="label">{{t.idType}}<text class="required">*</text></text><picker class="field-control picker-value" range="{{idTypes}}" value="{{idTypeIndex}}" bindchange="onIdType"><view>{{idTypes[idTypeIndex]}} <text class="picker-arrow">›</text></view></picker></view>
+    <view class="field"><text class="field-icon">号</text><text class="label">{{t.idNumber}}<text class="required">*</text></text><input class="field-control" adjust-position="{{true}}" cursor-spacing="120" value="{{visitor.idNumber}}" data-key="idNumber" bindinput="onVisitorInput" placeholder="{{p.idNumber}}" /></view>
+    <view class="field"><text class="field-icon">接</text><text class="label">{{t.contactName}}<text class="required">*</text></text><input class="field-control" adjust-position="{{true}}" cursor-spacing="120" value="{{form.contactName}}" data-key="contactName" bindinput="onInput" placeholder="{{p.contactName}}" /></view>
+    <view class="field"><text class="field-icon">机</text><text class="label">{{t.contactPhone}}<text class="required">*</text></text><input class="field-control" adjust-position="{{true}}" cursor-spacing="120" value="{{form.contactPhone}}" data-key="contactPhone" bindinput="onInput" placeholder="{{p.contactPhone}}" /></view>
+    <view class="field"><text class="field-icon">区</text><text class="label">{{t.visitArea}}<text class="required">*</text></text><picker class="field-control picker-value" range="{{areas}}" value="{{areaIndex}}" bindchange="onArea"><view>{{areas[areaIndex]}} <text class="picker-arrow">›</text></view></picker></view>
+    <view class="field"><text class="field-icon">由</text><text class="label">{{t.visitReason}}<text class="required">*</text></text><picker class="field-control picker-value" range="{{visitReasons}}" value="{{reasonIndex}}" bindchange="onReason"><view>{{visitReasons[reasonIndex]}} <text class="picker-arrow">›</text></view></picker></view>
+    <view class="field"><text class="field-icon">始</text><text class="label">{{t.startDate}}<text class="required">*</text></text><picker class="field-control picker-value" mode="date" value="{{form.visitStartDate}}" start="{{minVisitDate}}" bindchange="onStartDate"><view>{{form.visitStartDate}} <text class="picker-arrow">›</text></view></picker></view>
+    <view class="field"><text class="field-icon">终</text><text class="label">{{t.endDate}}<text class="required">*</text></text><picker class="field-control picker-value" mode="date" value="{{form.visitEndDate}}" start="{{form.visitStartDate}}" bindchange="onEndDate"><view>{{form.visitEndDate}} <text class="picker-arrow">›</text></view></picker></view>
+    <view class="field"><text class="field-icon">同</text><text class="label">{{t.companions}}</text><view class="field-control companion-control"><text>{{companions.length}}{{t.personUnit}}</text><button class="mini-add" bindtap="openCompanion">+ {{t.add}}</button></view></view>
+    <view wx:if="{{companions.length}}" class="companion-summary">
+      <view wx:for="{{companions}}" wx:key="phone" class="companion-chip">{{item.name}} {{item.phone}}</view>
+    </view>
+    <view class="field note-field"><text class="field-icon">物</text><text class="label">{{t.belongings}}</text><input class="field-control" adjust-position="{{true}}" cursor-spacing="180" value="{{form.specialRequest}}" data-key="specialRequest" bindinput="onInput" placeholder="{{p.belongings}}" /></view>
+    <view class="hint">{{t.itemHint}}</view>
+    <view class="field"><text class="field-icon">邮</text><text class="label">{{t.email}}</text><input class="field-control" adjust-position="{{true}}" cursor-spacing="180" value="{{form.applicantEmail}}" data-key="applicantEmail" bindinput="onInput" placeholder="{{p.email}}" /></view>
+    <view class="field"><text class="field-icon">车</text><text class="label">{{t.carPlate}}</text><input class="field-control" adjust-position="{{true}}" cursor-spacing="180" value="{{form.carPlate}}" data-key="carPlate" bindinput="onInput" placeholder="{{p.carPlate}}" /></view>
+    <view class="hint right">{{t.parkingHint}}</view>
+  </view>
+
+  <view class="submit-bar">
+    <button class="submit-btn" bindtap="submit">{{t.submit}}</button>
+  </view>
+
+  <view wx:if="{{showCompanionDialog}}" class="dialog-mask">
+    <view class="companion-dialog">
+      <view class="dialog-header">
+        <view>{{t.addCompanion}}</view>
+        <button class="dialog-close" bindtap="closeCompanion">×</button>
+      </view>
+      <view wx:if="{{companions.length}}" class="dialog-list">
+        <view wx:for="{{companions}}" wx:key="phone" class="dialog-row">
+          <text>{{index + 1}}. {{item.name}} {{item.phone}}</text>
+          <button data-index="{{index}}" bindtap="removeCompanion">{{t.delete}}</button>
+        </view>
+      </view>
+      <view class="dialog-form">
+        <input adjust-position="{{true}}" cursor-spacing="160" value="{{companionDraft.name}}" data-key="name" bindinput="onCompanionInput" placeholder="{{p.companionName}}" />
+        <input adjust-position="{{true}}" cursor-spacing="160" value="{{companionDraft.phone}}" data-key="phone" bindinput="onCompanionInput" placeholder="{{p.companionPhone}}" />
+        <input adjust-position="{{true}}" cursor-spacing="160" value="{{companionDraft.company}}" data-key="company" bindinput="onCompanionInput" placeholder="{{p.companionCompany}}" />
+        <picker class="dialog-picker" range="{{idTypes}}" value="{{companionIdTypeIndex}}" bindchange="onCompanionIdType">
+          <view>{{companionDraft.idType}} <text class="picker-arrow">›</text></view>
+        </picker>
+        <input adjust-position="{{true}}" cursor-spacing="160" value="{{companionDraft.idNumber}}" data-key="idNumber" bindinput="onCompanionInput" placeholder="{{t.idNumber}}" />
+      </view>
+      <button class="submit-btn dialog-submit" bindtap="saveCompanion">{{t.addCompanion}}</button>
+    </view>
+  </view>
+</view>
