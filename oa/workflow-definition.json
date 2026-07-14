@@ -1,0 +1,62 @@
+{
+  "name": "访客预约申请 OA 审批流程",
+  "version": "1.0.0",
+  "trigger": "POST /api/appointments",
+  "callback": "POST /api/oa/callback",
+  "standardNodes": [
+    {
+      "nodeName": "接洽人审批",
+      "approverSource": "appointment.contactEmployeeId",
+      "actions": ["approve", "reject"],
+      "rejectRequiresOpinion": true
+    },
+    {
+      "nodeName": "部门经理审批",
+      "approverSource": "employee.managerId",
+      "actions": ["approve", "reject"],
+      "rejectRequiresOpinion": true
+    },
+    {
+      "nodeName": "流程归档",
+      "approverSource": "SYSTEM",
+      "actions": ["archive"]
+    }
+  ],
+  "conditionalNodes": [
+    {
+      "condition": "visitAreas contains 车间 or 生产",
+      "insertBefore": "部门经理审批",
+      "nodeName": "特殊区域审批",
+      "approverId": "S3001"
+    },
+    {
+      "condition": "visitAreas contains 安全",
+      "insertBefore": "部门经理审批",
+      "nodeName": "安全敏感区域审批",
+      "approverId": "S3002"
+    },
+    {
+      "condition": "visitAreas contains 进出口",
+      "insertBefore": "部门经理审批",
+      "nodeName": "进出口运输审批",
+      "approverId": "S3003"
+    },
+    {
+      "condition": "visitAreas contains 仓储",
+      "insertBefore": "部门经理审批",
+      "nodeName": "仓储区域审批",
+      "approverId": "S3004"
+    }
+  ],
+  "callbackPayload": {
+    "applicationNo": "小程序申请单号",
+    "oaInstanceId": "OA 流程实例 ID",
+    "nodeName": "当前节点名称",
+    "approverId": "审批人工号",
+    "approverName": "审批人姓名",
+    "action": "submit / approve / reject / cancel / archive",
+    "opinion": "审批意见或驳回原因",
+    "actionTime": "审批时间",
+    "oaStatus": "OA 当前状态"
+  }
+}

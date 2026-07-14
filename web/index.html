@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>访客管理系统</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <section id="login-screen" class="login-screen hidden"></section>
+    <div class="app-shell" id="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">VMS</div>
+          <div>
+            <h1>访客管理系统</h1>
+          </div>
+        </div>
+        <nav class="nav" id="nav"></nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Visitor Management System</p>
+            <h2 id="page-title">OA 审批</h2>
+          </div>
+          <div class="top-actions">
+            <span id="today-pill" class="pill"></span>
+            <span id="current-user" class="muted"></span>
+            <button class="ghost" id="refresh-btn" type="button">刷新</button>
+            <button class="ghost" id="logout-btn" type="button">退出</button>
+          </div>
+        </header>
+        <section id="message" class="message hidden"></section>
+        <section id="view" class="view"></section>
+      </main>
+    </div>
+    <div id="modal-root"></div>
+    <script src="/web/app.js"></script>
+  </body>
+</html>
