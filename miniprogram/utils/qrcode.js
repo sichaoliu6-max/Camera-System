@@ -183,8 +183,8 @@ function makeQrModules(text) {
 
 function drawQrCode(page, canvasId, text, rpxSize = 280) {
   const modules = makeQrModules(text);
-  const systemInfo = wx.getSystemInfoSync();
-  const sizePx = Math.round((rpxSize * systemInfo.windowWidth) / 750);
+  const windowInfo = wx.getWindowInfo();
+  const sizePx = Math.round((rpxSize * windowInfo.windowWidth) / 750);
   const quiet = 4;
   const count = modules.length + quiet * 2;
   const cell = sizePx / count;
