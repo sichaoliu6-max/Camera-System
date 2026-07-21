@@ -11,7 +11,6 @@ App({
   onLaunch() {
     this.globalData.userProfile = wx.getStorageSync("vmsUserProfile") || null;
     this.applyLanguage();
-    this.wechatLogin();
   },
   t() {
     return getDictionary(this.globalData.language);

@@ -184,6 +184,12 @@ Page({
       if (!item.idNumber) missing.push(`${label}${t.idNumber}`);
     });
     if (missing.length) return `${t.requiredMissing}：${missing.join("、")}`;
+    if (this.data.noticeChecked.length !== this.data.noticeItems.length) {
+      return "请完整勾选工厂参观须知";
+    }
+    if (this.data.ndaChecked.length !== this.data.ndaItems.length) {
+      return "请完整勾选保密协议";
+    }
     return "";
   },
   async submit() {
@@ -219,8 +225,8 @@ Page({
         needParking: Boolean(this.data.form.carPlate),
         carPlate: this.data.form.carPlate,
         visitors: [mainVisitor, ...this.data.companions],
-        visitNoticeConfirmed: this.data.noticeItems.map((_, index) => String(index)),
-        ndaConfirmed: this.data.ndaItems.map((_, index) => String(index))
+        visitNoticeConfirmed: this.data.noticeChecked,
+        ndaConfirmed: this.data.ndaChecked
       };
       const result = await app.request("/api/appointments", { method: "POST", data: payload });
       app.globalData.lastApplicationNo = result.applicationNo;

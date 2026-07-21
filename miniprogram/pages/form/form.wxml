@@ -23,6 +23,26 @@
     <view class="hint right">{{t.parkingHint}}</view>
   </view>
 
+  <view class="agreement-section">
+    <view class="agreement-title">参观须知 <text class="required">*</text></view>
+    <checkbox-group bindchange="onNotice">
+      <label wx:for="{{noticeItems}}" wx:key="index" class="agreement-item">
+        <checkbox class="agreement-checkbox" value="{{index}}" color="#8a6b35" />
+        <text>{{index + 1}}. {{item}}</text>
+      </label>
+    </checkbox-group>
+  </view>
+
+  <view class="agreement-section">
+    <view class="agreement-title">保密协议 <text class="required">*</text></view>
+    <checkbox-group bindchange="onNda">
+      <label wx:for="{{ndaItems}}" wx:key="index" class="agreement-item">
+        <checkbox class="agreement-checkbox" value="{{index}}" color="#8a6b35" />
+        <text>{{index + 1}}. {{item}}</text>
+      </label>
+    </checkbox-group>
+  </view>
+
   <view class="submit-bar">
     <button class="submit-btn" bindtap="submit">{{t.submit}}</button>
   </view>
